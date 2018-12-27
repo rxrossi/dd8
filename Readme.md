@@ -4,6 +4,7 @@
 
 - Electron
 - React
+- Typeorm with sqlite3
 
 ## Yarn commands
 
