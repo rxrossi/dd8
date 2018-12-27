@@ -11,7 +11,7 @@ function createWindow() {
   if (isDev) {
     win.loadURL("http://localhost:8080")
   } else {
-    win.loadFile("reactBuild/index.html")
+    win.loadFile("reactAppBuild/index.html")
   }
 
   // Emitted when the window is closed.
