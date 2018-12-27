@@ -7,20 +7,16 @@ const htmlPlugin = new HtmlWebPackPlugin({
 })
 
 module.exports = () => ({
+  devtool: "inline-source-map",
   output: {
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "reactAppBuild"),
     filename: "bundle.js"
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
-      }
-    ]
+    rules: [{ test: /\.tsx?$/, loader: "ts-loader" }]
   },
   plugins: [htmlPlugin]
 })

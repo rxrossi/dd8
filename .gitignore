@@ -1,5 +1,10 @@
-node_modules
-dist
+.idea/
+.vscode/
+node_modules/
+build/
+reactAppBuild/
+tmp/
+temp/
+dist/
 TODO.md
 .DS_Store
-build
