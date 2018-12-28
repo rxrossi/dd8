@@ -18,10 +18,22 @@ module.exports = () => ({
     sqlite3: "require('sqlite3')"
   },
   resolve: {
+    alias: {
+      app: path.resolve(__dirname, "src/"),
+      entity: path.resolve(__dirname, "src/entity/"),
+      testUtils: path.resolve(__dirname, "testUtils/")
+    },
     extensions: [".ts", ".tsx", ".js"]
   },
   module: {
-    rules: [{ test: /\.tsx?$/, loader: "ts-loader" }]
+    rules: [
+      { test: /\.tsx?$/, loader: "ts-loader" },
+      {
+        test: /\.(png|jpe?g|svg)$/,
+        loader: "file-loader",
+        options: {}
+      }
+    ]
   },
   plugins: [htmlPlugin]
 })
