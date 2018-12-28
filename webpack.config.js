@@ -8,9 +8,14 @@ const htmlPlugin = new HtmlWebPackPlugin({
 
 module.exports = () => ({
   devtool: "inline-source-map",
+  target: "electron-renderer",
   output: {
     path: path.resolve(__dirname, "reactAppBuild"),
     filename: "bundle.js"
+  },
+  externals: {
+    typeorm: "require('typeorm')",
+    sqlite3: "require('sqlite3')"
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"]

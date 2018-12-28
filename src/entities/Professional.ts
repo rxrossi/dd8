@@ -1,7 +1,7 @@
-const { Entity, PrimaryGeneratedColumn, Column } = window.require("typeorm")
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm"
 
 @Entity()
-export default class Professional {
+export default class Professional extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
