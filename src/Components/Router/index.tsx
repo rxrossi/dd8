@@ -43,7 +43,6 @@ class Router extends React.Component {
 
   render() {
     const { component: View } = Views[this.state.view]
-    console.log(this.state)
 
     return (
       <Container>
