@@ -4,10 +4,12 @@ import * as path from "path"
 import { remote } from "electron"
 import Professional from "./entity/Professional"
 import Client from "./entity/Client"
+import Service from "./entity/Service"
 
 const entities = {
   Professional,
-  Client
+  Client,
+  Service
 }
 
 const dbPath =

@@ -10,6 +10,11 @@ import ClientsCreate from "../Clients/Create"
 import ClientsEdit from "../Clients/Edit"
 import ClientsView from "../Clients/View"
 import ClientsRemove from "../Clients/Remove"
+import Services from "../Services"
+import ServicesCreate from "../Services/Create"
+import ServicesEdit from "../Services/Edit"
+import ServicesView from "../Services/View"
+import ServicesRemove from "../Services/Remove"
 
 type ViewName =
   | "DASHBOARD"
@@ -24,7 +29,11 @@ type ViewName =
   | "CLIENTS_EDIT"
   | "CLIENTS_REMOVE"
   | "CLIENTS_VIEW"
-  | "CLIENTS"
+  | "SERVICES"
+  | "SERVICES_CREATE"
+  | "SERVICES_EDIT"
+  | "SERVICES_REMOVE"
+  | "SERVICES_VIEW"
 
 type View = {
   component: any
@@ -77,7 +86,7 @@ const Views: Views = {
   },
   CLIENTS_CREATE: {
     component: ClientsCreate,
-    label: "Criar clienhe",
+    label: "Criar cliente",
     showButtonInNav: false
   },
   CLIENTS_EDIT: {
@@ -93,6 +102,31 @@ const Views: Views = {
   CLIENTS_REMOVE: {
     component: ClientsRemove,
     label: "Remover cliente",
+    showButtonInNav: false
+  },
+  SERVICES: {
+    component: Services,
+    label: "Serviços",
+    showButtonInNav: true
+  },
+  SERVICES_CREATE: {
+    component: ServicesCreate,
+    label: "Criar serviço",
+    showButtonInNav: false
+  },
+  SERVICES_EDIT: {
+    component: ServicesEdit,
+    label: "Editar serviço",
+    showButtonInNav: false
+  },
+  SERVICES_VIEW: {
+    component: ServicesView,
+    label: "Ver detalhes de um serviço",
+    showButtonInNav: false
+  },
+  SERVICES_REMOVE: {
+    component: ServicesRemove,
+    label: "Remover serviço",
     showButtonInNav: false
   }
 }
