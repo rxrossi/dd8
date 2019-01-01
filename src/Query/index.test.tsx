@@ -1,9 +1,9 @@
 import { mount } from "enzyme"
 import * as React from "react"
 import Query from "."
-import Professional from "../entities/Professional"
-import createConnection from "../createConnection"
-import wait from "../../testUtils/wait"
+import Professional from "entity/Professional"
+import createConnection from "app/createConnection"
+import wait from "testUtils/wait"
 
 describe("Query", () => {
   beforeEach(async () => {

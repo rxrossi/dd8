@@ -6,13 +6,19 @@ const isDev = require("electron-is-dev")
 let win
 
 function createWindow() {
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({
+    width: 1000,
+    height: 700,
+    frame: false
+  })
 
   if (isDev) {
     win.loadURL("http://localhost:8080")
   } else {
     win.loadFile("reactAppBuild/index.html")
   }
+
+  win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on("closed", () => {
