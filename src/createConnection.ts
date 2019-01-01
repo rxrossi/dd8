@@ -3,9 +3,11 @@ import * as typeorm from "typeorm"
 import * as path from "path"
 import { remote } from "electron"
 import Professional from "./entity/Professional"
+import Client from "./entity/Client"
 
 const entities = {
-  Professional
+  Professional,
+  Client
 }
 
 const dbPath =
