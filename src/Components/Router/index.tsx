@@ -13,7 +13,7 @@ class Router extends React.Component {
     view: ViewName
     params: {}
   } = {
-    view: "PROFESSIONALS",
+    view: "SALES_CREATE",
     params: {}
   }
 

@@ -15,6 +15,11 @@ import ServicesCreate from "../Services/Create"
 import ServicesEdit from "../Services/Edit"
 import ServicesView from "../Services/View"
 import ServicesRemove from "../Services/Remove"
+import Sales from "../Sales"
+import SalesCreate from "../Sales/Create"
+import SalesEdit from "../Sales/Edit"
+import SalesView from "../Sales/View"
+import SalesRemove from "../Sales/Remove"
 
 type ViewName =
   | "DASHBOARD"
@@ -34,6 +39,11 @@ type ViewName =
   | "SERVICES_EDIT"
   | "SERVICES_REMOVE"
   | "SERVICES_VIEW"
+  | "SALES"
+  | "SALES_CREATE"
+  | "SALES_EDIT"
+  | "SALES_REMOVE"
+  | "SALES_VIEW"
 
 type View = {
   component: any
@@ -47,11 +57,6 @@ const Views: Views = {
   DASHBOARD: {
     component: Dashboard,
     label: "Dashboard",
-    showButtonInNav: true
-  },
-  SALES: {
-    component: () => <div>"Vendas"</div>,
-    label: "Vendas",
     showButtonInNav: true
   },
   PROFESSIONALS: {
@@ -127,6 +132,31 @@ const Views: Views = {
   SERVICES_REMOVE: {
     component: ServicesRemove,
     label: "Remover serviço",
+    showButtonInNav: false
+  },
+  SALES: {
+    component: Sales,
+    label: "Vendas",
+    showButtonInNav: true
+  },
+  SALES_CREATE: {
+    component: SalesCreate,
+    label: "Criar venda",
+    showButtonInNav: false
+  },
+  SALES_EDIT: {
+    component: SalesEdit,
+    label: "Editar venda",
+    showButtonInNav: false
+  },
+  SALES_VIEW: {
+    component: SalesView,
+    label: "Ver detalhes de um venda",
+    showButtonInNav: false
+  },
+  SALES_REMOVE: {
+    component: SalesRemove,
+    label: "Remover venda",
     showButtonInNav: false
   }
 }
