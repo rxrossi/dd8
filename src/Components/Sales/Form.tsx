@@ -1,10 +1,11 @@
 import * as React from "react"
-import { Button } from "reakit"
-import Field from "app/Components/Commons/Field"
+import { FormSpy } from "react-final-form"
+import { Button, Paragraph } from "reakit"
 import CommonForm, { onSubmitType } from "app/Components/Commons/Form"
 import Professional from "entity/Professional"
 import Client from "entity/Client"
 import Service from "entity/Service"
+import Field from "app/Components/Commons/Field"
 import EntitySelect from "app/Components/Commons/EntitySelect"
 
 interface IProps<T> {
@@ -15,13 +16,44 @@ interface IProps<T> {
 function Form({ onSubmit, entity }: IProps<Professional>) {
   return (
     <CommonForm entity={entity} onSubmit={onSubmit} data-test="form">
-      <EntitySelect entity={Service} label="Serviço" name="service" />
+      <EntitySelect entity={Client} label="Cliente" name="client" />
       <EntitySelect
         entity={Professional}
         label="Profissional"
         name="professional"
       />
-      <EntitySelect entity={Client} label="Cliente" name="client" />
+      <FormSpy subscription={{}}>
+        {({ form }) => {
+          return (
+            <EntitySelect
+              label="Serviço"
+              name="service"
+              entity={Service}
+              onChange={entity => {
+                if (entity) {
+                  form.change("value", Number(entity.value))
+                } else {
+                  form.change("value", null)
+                }
+              }}
+            />
+          )
+        }}
+      </FormSpy>
+      <Field name="value" label="Valor" type="number" />
+      <Field name="discount" label="Desconto" type="number" />
+      <Field name="notes" label="Notas" type="textarea" />
+      <FormSpy>
+        {({ values }) => {
+          return (
+            <Paragraph>
+              Valor total:{" "}
+              {(values.value || 0) -
+                (((values.value || 0) / 100) * values.discount || 0)}
+            </Paragraph>
+          )
+        }}
+      </FormSpy>
       <Button type="submit"> Salvar </Button>
     </CommonForm>
   )

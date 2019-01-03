@@ -18,7 +18,11 @@ function Field({ label, type, ...rest }: IProps) {
       {({ input }) => (
         <StyledField>
           <Label htmlFor={rest.name}>{label}</Label>
-          <Input type={type} {...input} />
+          {type === "textarea" ? (
+            <Input {...input} as={type} style={{ height: 90 }} />
+          ) : (
+            <Input type={type} {...input} />
+          )}
         </StyledField>
       )}
     </FinalForm.Field>
