@@ -31,14 +31,16 @@ class List extends React.Component<IProps> {
         <thead>
           <tr>
             <th>Nome</th>
+            <th>Valor</th>
             <th />
           </tr>
         </thead>
         <tbody>
-          {entities.map(({ id, name }) => {
+          {entities.map(({ id, name, value }) => {
             return (
               <tr key={id}>
                 <td>{name}</td>
+                <td>{value}</td>
                 <td align="right">
                   <Button
                     onClick={() =>

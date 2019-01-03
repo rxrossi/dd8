@@ -7,4 +7,7 @@ export default class Service extends BaseEntity {
 
   @Column()
   name: string
+
+  @Column()
+  value: number
 }

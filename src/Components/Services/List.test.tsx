@@ -23,7 +23,8 @@ describe("Services List", () => {
           resolve([
             {
               id: "1",
-              name: "Luzes"
+              name: "Luzes",
+              value: 100
             }
           ])
         })
@@ -40,6 +41,7 @@ describe("Services List", () => {
 
   it("Lists the clients", async () => {
     expect(wrapper.text()).toContain("Luzes")
+    expect(wrapper.text()).toContain("100")
   })
 
   it("has a button to edit the service", async () => {

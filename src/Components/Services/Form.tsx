@@ -13,6 +13,7 @@ function Form({ onSubmit, entity }: IProps<Client>) {
   return (
     <CommonForm entity={entity} onSubmit={onSubmit} data-test="form">
       <Field name="name" label="Nome" />
+      <Field name="value" label="Valor" type="number" />
       <Button type="submit"> Salvar </Button>
     </CommonForm>
   )

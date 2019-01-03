@@ -23,7 +23,8 @@ describe("Services view", () => {
         new Promise(resolve => {
           resolve({
             id: "2",
-            name: "Luzes"
+            name: "Luzes",
+            value: 100
           })
         })
     )
@@ -44,6 +45,7 @@ describe("Services view", () => {
 
     it("displays information about the entity", () => {
       expect(wrapper.text()).toContain("Luzes")
+      expect(wrapper.text()).toContain("100")
     })
   })
 })

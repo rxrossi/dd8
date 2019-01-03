@@ -24,7 +24,8 @@ describe("Services edit", () => {
         new Promise(resolve => {
           resolve({
             id: "2",
-            name: "Corte"
+            name: "Corte",
+            value: 100
           })
         })
     )
@@ -46,7 +47,8 @@ describe("Services edit", () => {
     it("fill form fields with the entity", () => {
       const values = formHelpers.getFieldsWithValues(wrapper)
       expect(values).toMatchObject([
-        { name: "name", value: "Corte", label: "Nome" }
+        { name: "name", value: "Corte", label: "Nome" },
+        { name: "value", value: 100, label: "Valor" }
       ])
     })
   })
@@ -74,6 +76,7 @@ describe("Services edit", () => {
         wrapper.update()
 
         formHelpers.changeFieldByLabel(wrapper, "Nome", "Luzes")
+        formHelpers.changeFieldByLabel(wrapper, "Valor", 120)
 
         formHelpers.submitForm(wrapper)
 
@@ -86,7 +89,8 @@ describe("Services edit", () => {
 
       it("calls the orm correctly", () => {
         expect(Service.update).toHaveBeenCalledWith("2", {
-          name: "Luzes"
+          name: "Luzes",
+          value: 120
         })
       })
 
