@@ -22,6 +22,7 @@ export default () =>
     entities: Object.values(entities),
     type: "sqlite",
     database: dbPath,
-    synchronize: true,
-    logging: false
+    synchronize: false,
+    logging: false,
+    migrationsRun: true
   })

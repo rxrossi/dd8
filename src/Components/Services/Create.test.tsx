@@ -21,6 +21,7 @@ describe("Services create", () => {
         wrapper = Enzyme.mount(<Create setView={setView} />)
 
         formHelpers.changeFieldByLabel(wrapper, "Nome", "Luzes")
+        formHelpers.changeFieldByLabel(wrapper, "Valor", 100)
 
         formHelpers.submitForm(wrapper)
 
@@ -31,7 +32,8 @@ describe("Services create", () => {
 
       it("calls the orm correctly", () => {
         expect(Service.create).toHaveBeenCalledWith({
-          name: "Luzes"
+          name: "Luzes",
+          value: 100
         })
 
         expect(Service.create().save).toHaveBeenCalled()

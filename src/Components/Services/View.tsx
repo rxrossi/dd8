@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Heading, Block, styled } from "reakit"
+import { Heading, Block, styled, Paragraph } from "reakit"
 import Service from "entity/Service"
 import { setViewType } from "app/Components/Router"
 
@@ -31,6 +31,7 @@ class View extends React.Component<IProps> {
       entity && (
         <Container>
           <Heading>{entity.name}</Heading>
+          <Paragraph>Valor: {entity.value}</Paragraph>
         </Container>
       )
     )
