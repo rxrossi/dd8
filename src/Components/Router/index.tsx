@@ -13,8 +13,8 @@ class Router extends React.Component {
     view: ViewName
     params: {}
   } = {
-    view: "SALES_CREATE",
-    params: {}
+    view: "SALES_EDIT",
+    params: { id: 3 }
   }
 
   setView: setViewType = ({ view, params }) => {

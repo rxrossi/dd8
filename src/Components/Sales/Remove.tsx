@@ -1,6 +1,6 @@
 import * as React from "react"
 import { styled, Block, Paragraph, Button } from "reakit"
-import Professional from "entity/Professional"
+import Sale from "entity/Sale"
 import { setViewType } from "app/Components/Router"
 
 const Container = styled(Block)`
@@ -22,13 +22,15 @@ class Edit extends React.Component<IProps> {
   }
 
   onRemove = () => {
-    Professional.remove(this.state.entity).then(() =>
-      this.props.setView({ view: "PROFESSIONALS" })
+    Sale.remove(this.state.entity).then(() =>
+      this.props.setView({ view: "SALES" })
     )
   }
 
   async componentDidMount() {
-    const entity = await Professional.findOne(this.props.id)
+    const entity = await Sale.findOne(this.props.id, {
+      relations: ["service", "professional"]
+    })
     this.setState({ entity })
   }
 
@@ -37,7 +39,10 @@ class Edit extends React.Component<IProps> {
     return (
       entity && (
         <Container>
-          <Paragraph>Tem certeza que deseja remover {entity.name}?</Paragraph>
+          <Paragraph>
+            Tem certeza que deseja remover {entity.service.name} por{" "}
+            {entity.professional.name}?
+          </Paragraph>
           <Button data-test="confirm" palette="danger" onClick={this.onRemove}>
             Sim
           </Button>

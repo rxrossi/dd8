@@ -19,6 +19,10 @@ class EntitySelect extends React.Component<IProps> {
     entities: []
   }
 
+  static defaultProps = {
+    onChange: () => null
+  }
+
   componentDidMount() {
     this.props.entity.find().then(entities => {
       this.setState({ entities })
@@ -32,14 +36,18 @@ class EntitySelect extends React.Component<IProps> {
         <Label>{this.props.label}</Label>
         <FinalFormField name={this.props.name}>
           {({ input }) => {
-            if (this.props.onChange) {
-              const entity = entities.find(entity => {
-                return entity.id === Number(input.value)
-              })
-              this.props.onChange(entity)
-            }
             return (
-              <Input as="select" {...input}>
+              <Input
+                as="select"
+                {...input}
+                onChange={e => {
+                  input.onChange(e)
+                  const entity = entities.find(
+                    entity => entity.id === Number(e.currentTarget.value)
+                  )
+                  this.props.onChange(entity)
+                }}
+              >
                 <option value={null} />
                 {entities.map(entity => (
                   <option key={entity.id} value={entity.id}>
