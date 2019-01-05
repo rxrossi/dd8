@@ -21,13 +21,13 @@ interface IProps {
   setView: setViewType
 }
 
-function Professionals({ setView }: IProps) {
+function Sales({ setView }: IProps) {
   return (
     <Container>
       <List data-test="entities-list" setView={setView} />
       <ButtonsWrapper>
         <Button
-          onClick={() => setView({ view: "PROFESSIONALS_CREATE" })}
+          onClick={() => setView({ view: "SALES_CREATE" })}
           data-test="create-new"
         >
           Criar novo
@@ -37,4 +37,4 @@ function Professionals({ setView }: IProps) {
   )
 }
 
-export default Professionals
+export default Sales

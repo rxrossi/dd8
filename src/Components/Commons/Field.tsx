@@ -3,7 +3,7 @@ import * as FinalForm from "react-final-form"
 import { Field as ReakitField, Input, Label, styled } from "reakit"
 
 const StyledField = styled(ReakitField)`
-  margin: 15px 0;
+  margin: 16px 8px;
 `
 
 interface IProps {

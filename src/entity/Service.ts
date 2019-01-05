@@ -1,5 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm"
-
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  OneToMany
+} from "typeorm"
+import Sale from "./Sale"
 @Entity()
 export default class Service extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -10,4 +16,7 @@ export default class Service extends BaseEntity {
 
   @Column()
   value: number
+
+  @OneToMany(type => Sale, sale => sale.client)
+  sales: Sale[]
 }

@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm"
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  OneToMany
+} from "typeorm"
+import Sale from "./Sale"
 
 @Entity()
 export default class Client extends BaseEntity {
@@ -7,4 +14,7 @@ export default class Client extends BaseEntity {
 
   @Column()
   name: string
+
+  @OneToMany(type => Sale, sale => sale.client)
+  sales: Sale[]
 }

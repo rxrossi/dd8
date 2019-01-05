@@ -1,7 +1,11 @@
 import * as React from "react"
 import { ObjectLiteral } from "typeorm"
 import { Field as FinalFormField } from "react-final-form"
-import { Field as ReakitField, Label, Input } from "reakit"
+import { Field as ReakitField, Label, Input, styled } from "reakit"
+
+const StyledField = styled(ReakitField)`
+  margin: 16px 8px;
+`
 
 interface IProps {
   entity: ObjectLiteral
@@ -24,7 +28,7 @@ class EntitySelect extends React.Component<IProps> {
   render() {
     const { entities } = this.state
     return (
-      <ReakitField>
+      <StyledField>
         <Label>{this.props.label}</Label>
         <FinalFormField name={this.props.name}>
           {({ input }) => {
@@ -46,7 +50,7 @@ class EntitySelect extends React.Component<IProps> {
             )
           }}
         </FinalFormField>
-      </ReakitField>
+      </StyledField>
     )
   }
 }

@@ -8,7 +8,10 @@ const onCreate: (
   setView: setViewType
 ) => onSubmitType<Sale> = setView => async (values, formApi) => {
   console.log({ values })
-  await Sale.create(values)
+  await Sale.create({
+    ...values,
+    value: values.value * 100
+  })
     .save()
     .then(() => {
       formApi.reset()
