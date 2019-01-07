@@ -4,12 +4,43 @@ import * as formHelpers from "testUtils/formHelpers"
 import wait from "testUtils/wait"
 import Edit from "./Edit"
 
+jest.mock("entity/Sale")
 jest.mock("entity/Professional")
+jest.mock("entity/Client")
+jest.mock("entity/Service")
+
 const Professional = require("entity/Professional").default as {
-  findOne: jest.Mock
-  update: jest.Mock
+  find: jest.Mock
 }
 
+const Client = require("entity/Client").default as {
+  find: jest.Mock
+}
+
+const Service = require("entity/Service").default as {
+  find: jest.Mock
+}
+
+Professional.find.mockResolvedValueOnce([
+  {
+    id: "1",
+    name: "Professional"
+  }
+])
+
+Service.find.mockResolvedValueOnce([
+  {
+    id: "1",
+    name: "Service"
+  }
+])
+
+Client.find.mockResolvedValueOnce([
+  {
+    id: "1",
+    name: "Client"
+  }
+])
 describe("Professionals edit", () => {
   afterEach(() => {
     jest.clearAllMocks()

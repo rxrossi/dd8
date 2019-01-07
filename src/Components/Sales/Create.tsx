@@ -7,7 +7,7 @@ import { setViewType } from "app/Components/Router"
 const onCreate: (
   setView: setViewType
 ) => onSubmitType<Sale> = setView => async (values, formApi) => {
-  console.log({ values })
+  // console.log({ values })
   await Sale.create({
     ...values,
     value: values.value * 100

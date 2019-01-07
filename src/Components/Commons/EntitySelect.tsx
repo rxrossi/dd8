@@ -33,7 +33,7 @@ class EntitySelect extends React.Component<IProps> {
     const { entities } = this.state
     return (
       <StyledField>
-        <Label>{this.props.label}</Label>
+        <Label htmlFor={this.props.name}>{this.props.label}</Label>
         <FinalFormField name={this.props.name}>
           {({ input }) => {
             return (

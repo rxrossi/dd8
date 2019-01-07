@@ -3,6 +3,25 @@ import * as Enzyme from "enzyme"
 export function submitForm(wrapper: Enzyme.ReactWrapper) {
   wrapper.find("form").simulate("submit")
 }
+export function changeTextareaByLabel(
+  wrapper: Enzyme.ReactWrapper,
+  label: string,
+  value: string | number
+) {
+  const labelComponent = wrapper.findWhere(
+    item => item.text() === label && item.type() === "label"
+  )
+
+  const input = wrapper.find(
+    `textarea[name='${labelComponent.prop("htmlFor")}']`
+  )
+
+  const inputName = input.prop("name")
+
+  input.simulate("change", {
+    target: { value, name: inputName }
+  })
+}
 
 export function changeFieldByLabel(
   wrapper: Enzyme.ReactWrapper,
@@ -17,7 +36,32 @@ export function changeFieldByLabel(
 
   const inputName = input.prop("name")
 
-  input.simulate("change", { target: { value, name: inputName } })
+  input.simulate("change", {
+    target: { value, name: inputName }
+  })
+}
+
+export function changeSelectEntity(
+  wrapper: Enzyme.ReactWrapper,
+  label: string,
+  value: string | number
+) {
+  const labelComponent = wrapper.findWhere(
+    item => item.text() === label && item.type() === "label"
+  )
+
+  const input = wrapper.find(`select[name='${labelComponent.prop("htmlFor")}']`)
+
+  const inputName = input.prop("name")
+
+  const onChange = input.prop("onChange") as any
+
+  onChange({
+    currentTarget: { value, name: inputName },
+    target: { value, name: inputName }
+  })
+
+  wrapper.update()
 }
 
 export function getFields(wrapper: Enzyme.ReactWrapper) {
