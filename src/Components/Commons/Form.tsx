@@ -20,7 +20,7 @@ interface IProps<T> {
   children: React.ReactNode
 }
 
-function Form({ onSubmit, children, entity }: IProps<Professional>) {
+function Form({ onSubmit, children, entity }: IProps<{}>) {
   return (
     <FinalForm.Form onSubmit={onSubmit} initialValues={entity}>
       {({ handleSubmit }) => (

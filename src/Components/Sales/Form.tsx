@@ -5,6 +5,7 @@ import CommonForm, { onSubmitType } from "app/Components/Commons/Form"
 import Professional from "entity/Professional"
 import Client from "entity/Client"
 import Service from "entity/Service"
+import Sale from "entity/Sale"
 import Field from "app/Components/Commons/Field"
 import EntitySelect from "app/Components/Commons/EntitySelect"
 
@@ -16,7 +17,7 @@ interface IProps<T> {
   entity?: {}
 }
 
-function Form({ onSubmit, entity }: IProps<Professional>) {
+function Form({ onSubmit, entity }: IProps<Sale>) {
   return (
     <CommonForm entity={entity} onSubmit={onSubmit} data-test="form">
       <Group>

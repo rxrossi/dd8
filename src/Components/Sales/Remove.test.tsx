@@ -3,13 +3,13 @@ import { mount, ReactWrapper } from "enzyme"
 import wait from "testUtils/wait"
 import Remove from "./Remove"
 
-jest.mock("entity/Professional")
-const Professional = require("entity/Professional").default as {
+jest.mock("entity/Sale")
+const Sale = require("entity/Sale").default as {
   findOne: jest.Mock
   remove: jest.Mock
 }
 
-describe("Professionals remove", () => {
+describe("Sales remove", () => {
   afterEach(() => {
     jest.clearAllMocks()
   })
@@ -17,17 +17,21 @@ describe("Professionals remove", () => {
   let wrapper: ReactWrapper
   const setView = jest.fn()
 
-  const professional = {
+  const sale = {
     id: "2",
-    name: "Bia",
-    percentage: 40
+    service: {
+      name: "Service"
+    },
+    professional: {
+      name: "Professional"
+    }
   }
 
   beforeEach(async done => {
-    Professional.findOne.mockImplementationOnce(
+    Sale.findOne.mockImplementationOnce(
       () =>
         new Promise(resolve => {
-          resolve(professional)
+          resolve(sale)
         })
     )
 
@@ -42,11 +46,13 @@ describe("Professionals remove", () => {
 
   describe("Data loading", () => {
     it("calls the orm correctly", () => {
-      expect(Professional.findOne).toHaveBeenCalledWith("2")
+      expect(Sale.findOne).toHaveBeenCalledWith("2", {
+        relations: ["service", "professional"]
+      })
     })
 
     it("shows the name of the entity", () => {
-      expect(wrapper.text()).toContain("Bia")
+      expect(wrapper.text()).toContain("Service")
     })
   })
 
@@ -56,14 +62,10 @@ describe("Professionals remove", () => {
       const setView = jest.fn()
 
       beforeEach(async done => {
-        Professional.findOne.mockImplementationOnce(
+        Sale.findOne.mockImplementationOnce(
           () =>
             new Promise(resolve => {
-              resolve({
-                id: "2",
-                name: "Bia",
-                percentage: 40
-              })
+              resolve(sale)
             })
         )
 
@@ -83,11 +85,11 @@ describe("Professionals remove", () => {
       })
 
       it("calls the orm correctly", () => {
-        expect(Professional.remove).toHaveBeenCalledWith(professional)
+        expect(Sale.remove).toHaveBeenCalledWith(sale)
       })
 
       it("calls setView correctly", () => {
-        expect(setView).toHaveBeenCalledWith({ view: "PROFESSIONALS" })
+        expect(setView).toHaveBeenCalledWith({ view: "SALES" })
       })
     })
   })

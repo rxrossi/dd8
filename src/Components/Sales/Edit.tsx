@@ -41,8 +41,6 @@ class Edit extends React.Component<IProps> {
       value: entity.value / 100
     }
 
-    console.log("id", entity.id)
-
     this.setState({ entity: parsed })
   }
 

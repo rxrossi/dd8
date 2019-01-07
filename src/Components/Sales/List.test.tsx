@@ -3,12 +3,12 @@ import { mount, ReactWrapper } from "enzyme"
 import wait from "testUtils/wait"
 import List from "./List"
 
-jest.mock("entity/Professional")
-const Professional = require("entity/Professional").default as {
+jest.mock("entity/Sale")
+const Sale = require("entity/Sale").default as {
   find: jest.Mock
 }
 
-describe("Professionals List", () => {
+describe("Sales List", () => {
   afterEach(() => {
     jest.clearAllMocks()
   })
@@ -17,14 +17,21 @@ describe("Professionals List", () => {
   const setView = jest.fn()
 
   beforeEach(async done => {
-    Professional.find.mockImplementationOnce(
+    Sale.find.mockImplementationOnce(
       () =>
         new Promise(resolve => {
           resolve([
             {
               id: "1",
-              name: "Ana",
-              percentage: 50
+              service: {
+                name: "Service"
+              },
+              professional: {
+                name: "Professional"
+              },
+              client: {
+                name: "Client"
+              }
             }
           ])
         })
@@ -39,15 +46,15 @@ describe("Professionals List", () => {
     done()
   })
 
-  it("Lists the professionals", async () => {
-    expect(wrapper.text()).toContain("Ana")
+  it("Lists the sale", async () => {
+    expect(wrapper.text()).toContain("Service")
   })
 
   it("has a button to edit the professional", async () => {
     wrapper.find("button[data-test='edit-entity']").prop("onClick")(null)
     expect(setView).toHaveBeenCalledWith({
       params: { id: "1" },
-      view: "PROFESSIONALS_EDIT"
+      view: "SALES_EDIT"
     })
   })
 
@@ -55,7 +62,7 @@ describe("Professionals List", () => {
     wrapper.find("button[data-test='remove-entity']").prop("onClick")(null)
     expect(setView).toHaveBeenCalledWith({
       params: { id: "1" },
-      view: "PROFESSIONALS_REMOVE"
+      view: "SALES_REMOVE"
     })
   })
 
@@ -63,7 +70,7 @@ describe("Professionals List", () => {
     wrapper.find("button[data-test='view-entity']").prop("onClick")(null)
     expect(setView).toHaveBeenCalledWith({
       params: { id: "1" },
-      view: "PROFESSIONALS_VIEW"
+      view: "SALES_VIEW"
     })
   })
 })

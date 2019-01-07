@@ -19,6 +19,6 @@ describe("Professionals", () => {
 
     button.prop("onClick")(null)
 
-    expect(setView).toHaveBeenCalledWith({ view: "PROFESSIONALS_CREATE" })
+    expect(setView).toHaveBeenCalledWith({ view: "SALES_CREATE" })
   })
 })

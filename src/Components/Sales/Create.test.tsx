@@ -44,7 +44,7 @@ describe("Sales create", () => {
       })
 
       it("calls setView correctly", () => {
-        expect(setView).toHaveBeenCalledWith({ view: "PROFESSIONALS" })
+        expect(setView).toHaveBeenCalledWith({ view: "SALES" })
       })
     })
   })
