@@ -1,4 +1,4 @@
-#Dany Dubisnky manager
+# Dany Dubisnky manager
 
 ## Stack
 
