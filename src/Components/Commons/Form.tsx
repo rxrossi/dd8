@@ -2,7 +2,7 @@ import * as React from "react"
 import * as FinalForm from "react-final-form"
 import { Block, styled, Field } from "reakit"
 import { palette } from "styled-tools"
-import Professional from "entity/Professional"
+import { Professional } from "entity/Professional"
 
 export type onSubmitType<T> = (values: T, form: FinalForm.SubsetFormApi) => void
 

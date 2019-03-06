@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Heading, Block, styled, Paragraph } from "reakit"
-import Service from "entity/Service"
+import { Service } from "entity/Service"
 import { setViewType } from "app/Components/Router"
 
 const Container = styled(Block)`

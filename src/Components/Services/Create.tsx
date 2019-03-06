@@ -1,5 +1,5 @@
 import * as React from "react"
-import Service from "entity/Service"
+import { Service } from "entity/Service"
 import Form from "./Form"
 import { onSubmitType } from "app/Components/Commons/Form"
 import { setViewType } from "app/Components/Router"

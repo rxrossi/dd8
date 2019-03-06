@@ -17,7 +17,7 @@ class Router extends React.Component {
     view: ViewName
     params: {}
   } = {
-    view: "SALES",
+    view: "SALES_CREATE",
     params: {}
   }
 

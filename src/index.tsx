@@ -1,3 +1,4 @@
+require("reflect-metadata")
 import * as React from "react"
 import * as ReactDOM from "react-dom"
 import createConnection from "app/createConnection"

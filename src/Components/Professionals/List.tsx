@@ -1,6 +1,6 @@
 import * as React from "react"
 import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa"
-import Professional from "entity/Professional"
+import { Professional } from "entity/Professional"
 import { Table, Button as BaseButton, styled } from "reakit"
 import { setViewType } from "app/Components/Router"
 

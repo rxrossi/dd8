@@ -2,7 +2,7 @@ import * as React from "react"
 import * as Enzyme from "enzyme"
 import * as formHelpers from "testUtils/formHelpers"
 import wait from "testUtils/wait"
-import Sale from "entity/Sale"
+import { Sale } from "entity/Sale"
 import Create from "./Create"
 
 jest.mock("entity/Sale")

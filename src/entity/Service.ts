@@ -5,9 +5,9 @@ import {
   BaseEntity,
   OneToMany
 } from "typeorm"
-import Sale from "./Sale"
+import { Sale } from "./Sale"
 @Entity()
-export default class Service extends BaseEntity {
+export class Service extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 

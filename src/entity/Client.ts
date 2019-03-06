@@ -5,10 +5,10 @@ import {
   BaseEntity,
   OneToMany
 } from "typeorm"
-import Sale from "./Sale"
+import { Sale } from "./Sale"
 
 @Entity()
-export default class Client extends BaseEntity {
+export class Client extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 

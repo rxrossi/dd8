@@ -2,7 +2,7 @@ import * as React from "react"
 import { Button } from "reakit"
 import Field from "app/Components/Commons/Field"
 import CommonForm, { onSubmitType } from "app/Components/Commons/Form"
-import Client from "entity/Client"
+import { Client } from "entity/Client"
 
 interface IProps<T> {
   onSubmit: onSubmitType<T>

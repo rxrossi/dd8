@@ -1,17 +1,21 @@
 require("reflect-metadata")
-const getAppData = require("appdata-path")
+const path = require("path")
+const { remote } = require("electron")
 
-const dbPath = `${getAppData()}/dd-manager.sqlite`
+const dbPath =
+  process.env["NODE_ENV"] === "test"
+    ? ":memory:"
+    : path.join(remote.app.getPath("appData"), "dd-manager.sqlite")
 
 module.exports = {
   type: "sqlite",
   database: dbPath,
-  entities: ["src/entity/*.ts"],
-  migrations: ["src/migration/*.ts"],
-  subscribers: ["src/subscriber/*.ts"],
   cli: {
     entitiesDir: "src/entity",
     migrationsDir: "src/migration",
     subscribersDir: "src/subscriber"
-  }
+  },
+  synchronize: false,
+  logging: false,
+  migrationsRun: true
 }

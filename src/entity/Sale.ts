@@ -5,12 +5,12 @@ import {
   ManyToOne,
   Column
 } from "typeorm"
-import Client from "./Client"
-import Service from "./Service"
-import Professional from "./Professional"
+import { Client } from "./Client"
+import { Service } from "./Service"
+import { Professional } from "./Professional"
 
 @Entity()
-export default class Sale extends BaseEntity {
+export class Sale extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { styled, Block, Paragraph, Button } from "reakit"
-import Client from "entity/Client"
+import { Client } from "entity/Client"
 import { setViewType } from "app/Components/Router"
 
 const Container = styled(Block)`

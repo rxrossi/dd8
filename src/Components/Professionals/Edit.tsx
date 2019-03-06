@@ -1,5 +1,5 @@
 import * as React from "react"
-import Professional from "entity/Professional"
+import { Professional } from "entity/Professional"
 import Form from "./Form"
 import { onSubmitType } from "app/Components/Commons/Form"
 import { setViewType } from "app/Components/Router"

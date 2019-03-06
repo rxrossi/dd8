@@ -41,7 +41,7 @@ const theme = {
   `,
   Input: css`
     ${defaultTheme.Input};
-    border: 1px solid ${defaultTheme.palette.background[2]};
+    border: 1px solid ${defaultTheme.palette.background[0]};
   `,
   Image: css`
     ${defaultTheme.Image};
@@ -52,7 +52,5 @@ const theme = {
     -o-user-drag: none;
   `
 }
-
-// console.log(theme)
 
 export default theme

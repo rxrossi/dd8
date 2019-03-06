@@ -1,5 +1,6 @@
 const path = require("path")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
+const CleanWebpackPlugin = require("clean-webpack-plugin")
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
@@ -10,8 +11,7 @@ module.exports = () => ({
   devtool: "inline-source-map",
   target: "electron-renderer",
   output: {
-    path: path.resolve(__dirname, "reactAppBuild"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, "reactAppBuild")
   },
   externals: {
     typeorm: "require('typeorm')",
@@ -27,7 +27,11 @@ module.exports = () => ({
   },
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: "ts-loader" },
+      {
+        test: /\.(ts|tsx)?$/,
+        loader: "ts-loader",
+        exclude: /node_modules/
+      },
       {
         test: /\.(png|jpe?g|svg)$/,
         loader: "file-loader",
@@ -35,5 +39,8 @@ module.exports = () => ({
       }
     ]
   },
-  plugins: [htmlPlugin]
+  optimization: {
+    minimize: false
+  },
+  plugins: [new CleanWebpackPlugin(), htmlPlugin]
 })

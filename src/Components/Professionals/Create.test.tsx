@@ -2,7 +2,7 @@ import * as React from "react"
 import * as Enzyme from "enzyme"
 import * as formHelpers from "testUtils/formHelpers"
 import wait from "testUtils/wait"
-import Professional from "entity/Professional"
+import { Professional } from "entity/Professional"
 import Create from "./Create"
 
 jest.mock("entity/Professional")

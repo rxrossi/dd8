@@ -1,6 +1,6 @@
 import * as React from "react"
 import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa"
-import Client from "entity/Client"
+import { Client } from "entity/Client"
 import { Table, Button as BaseButton, styled } from "reakit"
 import { setViewType } from "app/Components/Router"
 
