@@ -4,17 +4,21 @@ import theme from "app/theme"
 import { Nav, Container } from "./Styled"
 import { ViewName, Views } from "./Views"
 
-export type setViewType = (
-  { view, params }: { view: ViewName; params?: {} }
-) => void
+export type setViewType = ({
+  view,
+  params
+}: {
+  view: ViewName
+  params?: {}
+}) => void
 
 class Router extends React.Component {
   state: {
     view: ViewName
     params: {}
   } = {
-    view: "SALES_EDIT",
-    params: { id: 3 }
+    view: "SALES",
+    params: {}
   }
 
   setView: setViewType = ({ view, params }) => {
