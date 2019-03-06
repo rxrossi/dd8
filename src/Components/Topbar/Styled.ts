@@ -13,11 +13,15 @@ export const Container = styled(Block)`
   flex-direction: row-reverse;
   border-bottom: 1px solid ${palette("primary", 4)};
   height: ${theme("sizing.topbar")};
+`
+export const DraggableArea = styled(Block)`
+  width: 100%;
   -webkit-app-region: drag;
   -webkit-user-select: none;
 `
 
 export const Button = styled.button`
+  z-index: 1000;
   display: flex;
   border: 1px solid ${palette("primary", 5)};
   border-bottom: 1px solid ${palette("primary", 4)};

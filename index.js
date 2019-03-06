@@ -18,7 +18,6 @@ function createWindow() {
   } else {
     win.loadFile("reactAppBuild/index.html")
   }
-  win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on("closed", () => {

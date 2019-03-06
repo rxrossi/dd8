@@ -5,7 +5,8 @@ import {
   Button,
   CloseIcon,
   MinimizeIcon,
-  MaximizeIcon
+  MaximizeIcon,
+  DraggableArea
 } from "./Styled"
 
 class Topbar extends React.Component {
@@ -34,6 +35,7 @@ class Topbar extends React.Component {
         <Button data-test="close-minimize" onClick={this.handleMinimize}>
           <MinimizeIcon />
         </Button>
+        <DraggableArea />
       </Container>
     )
   }
