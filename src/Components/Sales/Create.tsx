@@ -32,9 +32,25 @@ function print({ receiptNr, customerName, date }) {
   })
 
   win.loadURL(
-    `data:text/html;charset=UTF-8, ${ReactDOMServer.renderToStaticMarkup(
-      <Receipt receiptNr={receiptNr} customerName={customerName} date={date} />
-    )}`
+    `data:text/html;charset=UTF-8,
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="UTF-8">
+      </head>
+      <body>
+        <div id="view">
+          ${ReactDOMServer.renderToStaticMarkup(
+            <Receipt
+              receiptNr={receiptNr}
+              customerName={customerName}
+              date={date}
+            />
+          )}
+        </div>
+      </body>
+    </html>
+     `
   )
 
   setTimeout(() => {

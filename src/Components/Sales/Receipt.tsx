@@ -4,6 +4,7 @@ function Receipt({ receiptNr, customerName, date }) {
   return (
     <div
       style={{
+        width: 250,
         margin: "50px 10px"
       }}
     >
