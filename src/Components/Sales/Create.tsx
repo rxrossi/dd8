@@ -2,6 +2,7 @@ import * as React from "react"
 import * as ReactDOMServer from "react-dom/server"
 import Receipt from "./Receipt"
 import * as fs from "fs"
+import * as path from "path"
 import { remote } from "electron"
 import { Sale } from "entity/Sale"
 import Form from "./Form"
@@ -54,26 +55,28 @@ function print({ receiptNr, customerName, date }) {
   )
 
   setTimeout(() => {
-    win.webContents.print()
-    //   win.webContents.printToPDF(
-    //     {
-    //       pageSize: {
-    //         width: 98400,
-    //         height: 2250000
-    //       }
-    //     },
-    //     (error, data) => {
-    //       if (error) throw error
-    //       const p = path.join(remote.app.getPath("appData"), "tempPDF.pdf")
-    //       // console.log(p)
-    //       fs.writeFile(p, data, error => {
-    //         if (error) throw error
-    //         // win.loadURL()
-    //         console.log("Write PDF successfully.")
-    //       })
-    //     }
-    //   )
-  }, 500)
+    // win.webContents.print()
+    win.webContents.printToPDF(
+      {
+        pageSize: {
+          width: 80000,
+          height: 297000
+        }
+      },
+      (error, data) => {
+        if (error) throw error
+        const p = path.join(remote.app.getPath("appData"), "tempPDF.pdf")
+        // console.log(p)
+        fs.writeFile(p, data, error => {
+          if (error) throw error
+          // win.loadURL()
+          console.log("Write PDF successfully.")
+          const win2 = new remote.BrowserWindow()
+          win2.loadURL(p)
+        })
+      }
+    )
+  }, 1000)
 }
 
 const receiptNr = "2019030001"
